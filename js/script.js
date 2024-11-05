@@ -1,14 +1,14 @@
 console.log('email list');
 
 //DOM ELEMENTS
-const ulElement = document.querySelector('.email-list');
+const ulElement = document.querySelector('.list-group');
 console.log(ulElement);
 
-function createDOMElement(tag, classes = [], content = '') {
+function createDOMElement(tag, classList = [], content = '') {
 
   const element = document.createElement(tag);
 
-  element.classList = classes;
+  element.classList.add(...classList);
   element.innerHTML = content;
 
   return element;
@@ -24,7 +24,7 @@ function emailGen(num) {
         const email = res.data.response;
 
         //creazione elemento lista da mostrare nel dom
-        const liElement = createDOMElement('li', 'email', email);
+        const liElement = createDOMElement('li', ['list-group-item'], email);
         console.log;
         ulElement.appendChild(liElement);
 
